@@ -1,0 +1,25 @@
+.Product__container {
+    width: 500px;
+    height: 250px;
+    border: 1px solid rgba(0, 0, 0, 0.502);
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.Product__content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Product__content > img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 15px;
+}
