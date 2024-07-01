@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "../css/Products.css"
 import axios from 'axios';
 import { IProduct } from "../models";
 import Product from "../components/Product/Product";
+import { ModalContext } from "../context/ModalContext";
+
+
 
 const URL = 'https://fakestoreapi.com/products?limit=5';
 
 export default function Products () {
     const [products, setProducts] = useState<IProduct[]>([]);
+    const {modal, showModal, hideModal} = useContext(ModalContext);
     useEffect(() => {
             const fetchProducts = async () => {
                 try {
