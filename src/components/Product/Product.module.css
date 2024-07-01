@@ -23,3 +23,18 @@
     height: 100px;
     margin-bottom: 15px;
 }
+
+.Product__content > button {
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: 500;
+    background-color: #ffeb77fd;
+}
+.Product__content > button:hover {
+    box-shadow: 0 0 4px black;
+    transition: all;
+    transition-duration: 0.25s;
+}
+.Product__content > button:active {
+    transform: scale(0.95)
+}

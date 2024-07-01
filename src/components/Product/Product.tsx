@@ -7,7 +7,9 @@ interface ProductProps {
 }
 
 export default function Product ({product}: ProductProps) {
-    
+    const btnClickHandler = () => {
+        
+    }
 
     return (
         <div className={cl.Product__container}>
@@ -15,6 +17,11 @@ export default function Product ({product}: ProductProps) {
                 <img src={product.image}/>
                 <h2>{product.title}</h2>
                 <h3>{product.price}</h3>
+                <button
+                    onClick={btnClickHandler}
+                >
+                    Details
+                </button>
             </div>
         </div>
     )
