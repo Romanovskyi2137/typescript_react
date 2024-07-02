@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { IProduct } from "../../models";
 import cl from "./Product.module.css"
+import { ModalContext } from "../../context/ModalContext";
 
 interface ProductProps {
     product: IProduct
 }
 
 export default function Product ({product}: ProductProps) {
+    const {showModal} = useContext(ModalContext)
     const btnClickHandler = () => {
         
     }

@@ -1,9 +1,22 @@
 .Modal__background {
-
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    background-color: #05050552;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .Modal__container {
-
+    width: 450px;
+    height: 350px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px;
 }
 
 .Modal__content {

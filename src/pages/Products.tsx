@@ -3,7 +3,7 @@ import "../css/Products.css"
 import axios from 'axios';
 import { IProduct } from "../models";
 import Product from "../components/Product/Product";
-import { ModalContext } from "../context/ModalContext";
+import { Modal } from "../components/Modal/Modal";
 
 
 
@@ -11,7 +11,7 @@ const URL = 'https://fakestoreapi.com/products?limit=5';
 
 export default function Products () {
     const [products, setProducts] = useState<IProduct[]>([]);
-    const {modal, showModal, hideModal} = useContext(ModalContext);
+    const [product, setProduct] = useState<IProduct | null>(null);
     useEffect(() => {
             const fetchProducts = async () => {
                 try {
@@ -23,12 +23,14 @@ export default function Products () {
                 
             };
             fetchProducts()
-
     }, [])
 
     return (
         <div className="Products__container">
             <div className="Products__content">
+                <Modal
+                    product={product}
+                />
                 {products.length !== 0 && products.map(product => <Product product={product} key={product.id}/>)} 
             </div>
         </div>
