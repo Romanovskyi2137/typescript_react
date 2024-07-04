@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { IProduct } from "../../models";
 import cl from "./Product.module.css"
-import { useOutsideClick } from "../../hooks/useOutsideClick";
 import { ModalContext } from "../../context/ModalContext";
 
 interface ProductProps {
