@@ -4,6 +4,7 @@ import axios from 'axios';
 import { IProduct } from "../models";
 import Product from "../components/Product/Product";
 import { Modal } from "../components/Modal/Modal";
+import {useOutsideClick} from "../hooks/useOutsideClick";
 
 
 
@@ -28,10 +29,14 @@ export default function Products () {
     return (
         <div className="Products__container">
             <div className="Products__content">
-                <Modal
-                    product={product}
+                <Modal 
+                    product={product} 
                 />
-                {products.length !== 0 && products.map(product => <Product product={product} key={product.id}/>)} 
+                {products.length !== 0 && products.map(product => 
+                    <Product
+                        product={product} 
+                        key={product.id} 
+                    />)} 
             </div>
         </div>
     )
