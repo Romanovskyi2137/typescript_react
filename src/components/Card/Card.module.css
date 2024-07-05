@@ -1,0 +1,12 @@
+
+
+.Card__container {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+}
+
+.Card__container > img {
+    width: 150px;
+    height: 150px;
+}

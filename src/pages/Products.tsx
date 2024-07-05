@@ -1,23 +1,24 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../css/Products.css"
 import axios from 'axios';
 import { IProduct } from "../models";
 import Product from "../components/Product/Product";
-import { Modal } from "../components/Modal/Modal";
-import {useOutsideClick} from "../hooks/useOutsideClick";
+import Modal from "../components/Modal/Modal";
+import Loader from "../components/Loader/Loader";
 
 
 
 const URL = 'https://fakestoreapi.com/products?limit=5';
 
-export default function Products () {
+export default function  Products () {
     const [products, setProducts] = useState<IProduct[]>([]);
-    const [product, setProduct] = useState<IProduct | null>(null);
+    const [isLoading, setIsLoading] = useState(true)
     useEffect(() => {
             const fetchProducts = async () => {
                 try {
                     const {data} = await axios.get<IProduct[]>(URL);
-                    setProducts(data)                    
+                    setProducts(data);
+                    setIsLoading(false)                    
                 } catch (e) {
                     console.log(e)                   
                 }
@@ -28,16 +29,18 @@ export default function Products () {
 
     return (
         <div className="Products__container">
-            <div className="Products__content">
-                <Modal 
-                    product={product} 
-                />
-                {products.length !== 0 && products.map(product => 
-                    <Product
-                        product={product} 
-                        key={product.id} 
+            {!isLoading ?
+                <div className="Products__content">
+                    <Modal/>
+                    {products.length !== 0 && products.map(product => 
+                        <Product
+                            product={product} 
+                            key={product.id} 
                     />)} 
-            </div>
+                </div>
+                :
+                    <Loader/>
+            }
         </div>
     )
 }

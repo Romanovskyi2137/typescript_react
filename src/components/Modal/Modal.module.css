@@ -13,12 +13,8 @@
 
 .Modal__container {
     width: 450px;
-    height: 350px;
+    min-height: 350px;
     background-color: white;
     border-radius: 5px;
     padding: 20px;
-}
-
-.Modal__content {
-    
 }

@@ -28,7 +28,7 @@ export const ProductContext = createContext<IProductContext>(defaultProdValue)
 
 export const ModalState = ({children}: {children: ReactNode}) => {
     const [modal, setModal] = useState(false);
-    const [product, setProduct] = useState<IProductContext["product"]>(null)
+    const [product, setProduct] = useState<IProduct | null>(null)
     const showModal = () => {
         setModal(true)
     };
